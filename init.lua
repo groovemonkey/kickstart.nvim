@@ -564,7 +564,7 @@ cmp.setup {
 
 -- dcohen
 -- I just wanted to get the goimports plugin firing. Taken (+ fixed) from: https://www.getman.io/posts/programming-go-in-neovim/
-function goimports(timeout_ms)
+function goimports()
   local context = { source = { organizeImports = true } }
   vim.validate { context = { context, "t", true } }
 
@@ -573,7 +573,7 @@ function goimports(timeout_ms)
 
   -- See the implementation of the textDocument/codeAction callback
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
   if not result or next(result) == nil then return end
   local actions = result[1].result
   if not actions then return end
@@ -594,7 +594,7 @@ function goimports(timeout_ms)
   end
 end
 
-vim.cmd([[autocmd BufWritePre *.go lua goimports(1000)]])
+vim.cmd([[autocmd BufWritePre *.go lua goimports()]])
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
