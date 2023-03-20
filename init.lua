@@ -97,6 +97,10 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   },
   {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' },
+  },
+  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
@@ -503,7 +507,7 @@ cmp.setup {
 -- dave: register the command
 -- require 'custom.plugins.goimports'
 -- vim.cmd([[autocmd BufWritePre *.go lua goimports()]])
-
+require('leap').add_default_mappings()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
