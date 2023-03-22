@@ -93,11 +93,6 @@ require('lazy').setup({
     },
   },
 
-  -- dave: this looked like a more minimal go plugin
-  -- {
-  --    'crispgm/nvim-go',
-  --    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-  --  },
   {
     -- big boy Go plugin -- I was missing fillstruct and a few other things
     "ray-x/go.nvim",
@@ -107,7 +102,9 @@ require('lazy').setup({
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        luasnip = true,
+      })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
@@ -183,6 +180,9 @@ require('lazy').setup({
   },
   {
     'ishan9299/nvim-solarized-lua',
+  },
+  {
+    'rafamadriz/neon',
   },
   {
     'shaunsingh/nord.nvim',
