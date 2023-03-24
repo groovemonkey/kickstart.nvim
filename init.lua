@@ -590,8 +590,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
+-- add my custom go snippets
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./lua/custom/plugins/dave-snippets-go" } })
+
 -- set a reasonable tabstop that won't make me rip my eyes out while writing Go
-vim.cmd.set("tabstop=4")
+-- (actually, this is handled by vim-sleuth?)
+-- vim.cmd.set("tabstop=4", "softtabstop=0", "noexpandtab", "shiftwidth=4")
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
