@@ -1,0 +1,12 @@
+{
+		"while statement": {
+				"prefix": "while",
+				"body": "for {\n\t// ${1}\n\tif !${2:condition} {\n\t\tbreak\n\t}\n\t// ${3}",
+				"description": "snippet for a go-style 'while' statement"
+		},
+		"errors.As": {
+				"prefix": "erras",
+				"body": "target := ${1}{}\nif !errors.As(err, &target) {\n\tt.Errorf(\"unexpected error type for uninitialized exporter method Export, %v\", err)\n}\n${2}\n",
+				"description": "snippet for Errors.As: check for a specific error type"
+		}
+}
