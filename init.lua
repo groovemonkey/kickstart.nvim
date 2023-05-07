@@ -130,7 +130,6 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-<<<<<<< HEAD
   { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -168,6 +167,7 @@ require('lazy').setup({
           return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
+      current_line_blame = true,
     },
   },
   {
