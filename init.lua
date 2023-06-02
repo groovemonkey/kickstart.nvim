@@ -593,6 +593,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- add my custom go snippets
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./lua/custom/plugins/dave-snippets-go" } })
 
+-- add elixir package
+require("elixir").setup()
+
 -- set a reasonable tabstop that won't make me rip my eyes out while writing Go
 -- (actually, this is handled by vim-sleuth?)
 -- vim.cmd.set("tabstop=4", "softtabstop=0", "noexpandtab", "shiftwidth=4")
