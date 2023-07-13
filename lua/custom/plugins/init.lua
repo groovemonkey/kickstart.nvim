@@ -3,5 +3,5 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-	-- { 'hkupty/iron.nvim' },
+	-- { 'Vigemus/iron.nvim' }
 }

@@ -4,3 +4,6 @@ vim.keymap.set('n', '<space>repl', '<cmd>IronRepl<cr>')
 vim.keymap.set('n', '<space>replr', '<cmd>IronRestart<cr>')
 vim.keymap.set('n', '<space>replf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<space>replh', '<cmd>IronHide<cr>')
+
+-- add elixir package
+require("elixir").setup()
