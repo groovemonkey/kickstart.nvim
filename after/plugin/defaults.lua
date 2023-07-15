@@ -5,5 +5,7 @@ vim.keymap.set('n', '<space>replr', '<cmd>IronRestart<cr>')
 vim.keymap.set('n', '<space>replf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<space>replh', '<cmd>IronHide<cr>')
 
+vim.cmd.set("cursorline")
+
 -- add elixir package
 require("elixir").setup()
