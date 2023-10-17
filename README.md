@@ -1,11 +1,22 @@
 # Dave's fork of kickstart.nvim
 
 This is my fork of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
+=======
 
 It's mostly set up for Go, Elixir, and Terraform work.
 
 ## Updating
 
+Since GitHub's "sync fork" functionality is completely borked, offering only to delete all my commits, this is the process to sync from upstream:
+
+```
+git remote add upstream https://github.com/nvim-lua/kickstart.nvim
+git fetch upstream
+git checkout master
+git rebase upstream/master
+```
+
+=======
 This repo is meant to be used by **YOU** to begin your Neovim journey; remove the things you don't use and add what you miss.
 
 Kickstart.nvim targets *only* the latest ['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim. If you are experiencing issues, please make sure you have the latest versions.
@@ -101,6 +112,32 @@ git remote add upstream https://github.com/nvim-lua/kickstart.nvim
 git fetch upstream
 git checkout master
 git rebase upstream/master
+=======
+After this, just fix merge conflicts, `git add` them, and `git rebase --continue` as needed.
+
+=======
+This will automatically install [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) and enable it on startup. For more information, see documentation for [lazy.nvim](https://github.com/folke/lazy.nvim).
+
+#### Example: Adding a file tree plugin
+
+In the file: `lua/custom/plugins/filetree.lua`, add:
+
+```lua
+-- Unless you are still migrating, remove the deprecated commands from v1.x
+vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+return {
+  "nvim-neo-tree/neo-tree.nvim",
+  version = "*",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "MunifTanjim/nui.nvim",
+  },
+  config = function ()
+    require('neo-tree').setup {}
+  end,
+}
 ```
 
 After this, just fix merge conflicts, `git add` them, and `git rebase --continue` as needed.
