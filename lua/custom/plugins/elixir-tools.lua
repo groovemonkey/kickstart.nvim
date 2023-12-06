@@ -1,15 +1,16 @@
 return {
   "elixir-tools/elixir-tools.nvim",
+  version = "*",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local elixir = require("elixir")
     local elixirls = require("elixir.elixirls")
 
     elixir.setup {
-      -- credo = {enable: true},
-      -- nextls = {enable: false}
+      nextls = { enable = true },
+      credo = {},
       elixirls = {
-        enabled = true,
+        enable = true,
         settings = elixirls.settings {
           dialyzerEnabled = false,
           enableTestLenses = false,
